@@ -48,6 +48,7 @@ let uso = [
   {
     nombre: "Nivel de Instrucción",
     tipo: "lista",
+    col: 8,
     opciones: [
       "Primaria",
       "Estudiante Universitario",
@@ -58,23 +59,28 @@ let uso = [
   },
   {
     nombre: "Zona o Comunidad",
-    tipo: "texto"
+    tipo: "texto",
+    col: 4
   },
   {
     nombre: "Hora de entrada",
-    tipo: "hora"
+    tipo: "hora",
+    col: 2
   },
   {
     nombre: "Hora de salida",
     tipo: "hora",
+    col: 2
   },
   {
     nombre: "Identidad Electronica",
-    tipo: "texto"
+    tipo: "texto",
+    col: 8
   },
   {
     nombre: "Indique el espacio Maker solicitado y su uso",
     tipo: "lista",
+    col: 8,
     expandible: true,
     opciones: [
       { 
@@ -145,6 +151,19 @@ let uso = [
       
     ]
   },
+  {
+    nombre: "Evaluación del servicio",
+    tipo: "sub"
+  },
+  {
+    nombre: "¿Le ha sido util el espacio para lo que necesitaba realizar?",
+    tipo: "cotejo",
+    col: 8,
+    opciones: [
+      "Si", 
+      "No"
+    ]
+  }
 ]
 </script>
 
