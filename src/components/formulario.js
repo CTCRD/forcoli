@@ -1,11 +1,30 @@
-<template>
-  
-</template>
-
-<script>
 export default {
-  
+  render (h) {
+    return (
+      <span>
+        <el-input/>
+        <el-date-picker
+          type="date"
+          placeholder="Selecciona un día">
+        </el-date-picker>
+        <div>Hey there you</div>  
+      </span>
+    )
+  }
 }
+
+function clasificar(campo){
+  switch(campo.tipo){
+    case "texto":
+      return <a-input placeholder="" />
+    case "lista":
+    case "fecha":
+    case "cotejo":
+    case "hora":
+    case "sub":
+  }
+}
+
 let uso = [
   {
     nombre: "CTC",
@@ -160,13 +179,8 @@ let uso = [
     tipo: "cotejo",
     col: 8,
     opciones: [
-      "Si", 
+      "Si",
       "No"
     ]
   }
 ]
-</script>
-
-<style lang="scss">
-
-</style>

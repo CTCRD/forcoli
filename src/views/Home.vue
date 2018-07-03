@@ -1,16 +1,16 @@
 <template>
-  <div class="home">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  </div>
+  <span>
+    <div> Hey there </div>
+    <formulario></formulario>
+  </span>
 </template>
 
 <script>
-// import HelloWorld from '@/components/HelloWorld.vue'
+import formulario from '@/components/formulario'
 
 export default {
-  name: 'home',
   components: {
-    // HelloWorld
+    formulario
   }
 }
 </script>
