@@ -26,4 +26,9 @@ body{
   text-align: center;
   color: #2c3e50;
 }
+.el-date-picker__header-label, 
+.el-select-dropdown__item,
+.el-date-picker table{
+  font-family: "Helvetica"
+}
 </style>
