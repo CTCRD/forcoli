@@ -1,6 +1,5 @@
 <template>
   <span>
-    <div> Hey there </div>
     <formulario></formulario>
   </span>
 </template>
