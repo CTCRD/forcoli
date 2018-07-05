@@ -29,22 +29,24 @@ function dividir (h, campos, clasificar){
     padres.push( <div class="fila"> {hijos} </div> )
     hijos = []
   }
-  campos.forEach((campo, i) =>{
-    if(contador + (campo.col || 3) > 8) asignar()
-    contador += (campo.col || 3)
-    let salida = clasificar(h, campo)
-    if(typeof salida == "array") {
-      hijos.push(salida[0])
-      campos.splice(i+1, 0, salida[1])
+  for(var i = 0; i < campos.length; i++){
+    if(contador + (campos[i].col || 3) > 8) asignar()
+    contador += (campos[i].col || 3)
+    let salida = clasificar(h, campos[i])
+    if(salida.length > 1) {
+      hijos.push(salida[1])
+      // campos.splice(i+1,0,salida[1])
     }
-    else hijos.push(salida)
+    else hijos.push(salida[0])
     if(i == campos.length-1) asignar()
-  })
+  }
   return padres 
 }
 
-function clasificar(h, campo, adicional){
-  let col = campo.col || 3  
+function clasificar(h, ogCampo){
+  let col = ogCampo.col || 3
+  let adicional = []
+
   let style = {
     width: "calc(" + 100*(col/8) + "% - 10px)",
     display: "flex",
@@ -59,7 +61,6 @@ function clasificar(h, campo, adicional){
       case "numero":
         return <el-input-number style={{width: "100%"}} value={this.formulario[campo.nombre]} on-change={val => this.sync(campo.nombre, val)}/>
       case "lista":
-        let adicional = null
         if(campo.expandible && this.formulario[campo.nombre]){
           let opcion = campo.opciones.filter(el => el.nombre == this.formulario[campo.nombre])[0]
           let campoAdicional = {
@@ -68,9 +69,9 @@ function clasificar(h, campo, adicional){
             tipo: opcion.tipo,
             opciones: opcion.opciones     
           }
-          adicional = construir(campoAdicional)
+          adicional.push(construir(campoAdicional))
         }
-        return [(
+        return (
           <el-select style={{width: "100%"}} value={this.formulario[campo.nombre]} 
             clearable placeholder="" on-change={val => this.sync(campo.nombre, val)}>
             { campo.opciones.map(op =>
@@ -81,7 +82,7 @@ function clasificar(h, campo, adicional){
               />
             )}
           </el-select>
-        ), adicional]
+        )
       case "fecha":
         return <el-date-picker 
                   on-input={val => this.sync(campo.nombre, val)}
@@ -130,7 +131,7 @@ function clasificar(h, campo, adicional){
     </div>
   )
 
-  return construir(campo)
+  return [construir(ogCampo), ...adicional]
 }
 
 let uso = [
