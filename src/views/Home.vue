@@ -1,11 +1,9 @@
 <template>
-  <span>
     <formulario></formulario>
-  </span>
 </template>
 
 <script>
-import formulario from '@/components/formulario'
+import formulario from '@/components/Formulario.vue'
 
 export default {
   components: {

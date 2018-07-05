@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import { Button, Select, Option, Input, DatePicker, TimeSelect, Checkbox, InputNumber, CheckboxGroup } from 'element-ui';
+import { Button, Select, Option, Input, DatePicker, TimePicker, Checkbox, InputNumber, CheckboxGroup } from 'element-ui';
 import lang from './helpers/es'
 import locale from 'element-ui/lib/locale'
 
@@ -19,7 +19,7 @@ Vue.use(CheckboxGroup)
 Vue.use(Input)
 Vue.use(InputNumber)
 Vue.use(DatePicker)
-Vue.use(TimeSelect)
+Vue.use(TimePicker)
 
 Vue.config.productionTip = false
 
