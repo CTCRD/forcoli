@@ -8,6 +8,8 @@ import lang from './helpers/es'
 import locale from 'element-ui/lib/locale'
 
 import '@/assets/element-variables.scss'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 locale.use(lang)
 
